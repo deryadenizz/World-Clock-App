@@ -23,3 +23,39 @@ function showSelectedCityTime(event) {
 
 let citySelect = document.querySelector("#country");
 citySelect.addEventListener("change", showSelectedCityTime);
+//Los Angeles
+setInterval(function () {
+  let losAngelesElement = document.querySelector("#los-angeles");
+  let losAngelesDateElement = losAngelesElement.querySelector(".date");
+  let losAngelesTimeElement = losAngelesElement.querySelector(".time");
+  losAngelesDateElement.innerHTML = moment()
+    .tz("America/Los_Angeles")
+    .format("MMMM Do YYYY");
+  losAngelesTimeElement.innerHTML = moment()
+    .tz("America/Los_Angeles")
+    .format("h:mm:ss [<small>]A[</small>]");
+}, 1000);
+//İstanbul
+setInterval(function () {
+  let istanbulElement = document.querySelector("#istanbul");
+  let istanbulDateElement = istanbulElement.querySelector(".date");
+  let istanbulTimeElement = istanbulElement.querySelector(".time");
+  istanbulDateElement.innerHTML = moment()
+    .tz("Asia/Istanbul")
+    .format("MMMM Do YYYY");
+  istanbulTimeElement.innerHTML = moment()
+    .tz("Asia/Istanbul")
+    .format("h:mm:ss [<small>]A[</small>]");
+}, 1000);
+//Toronto
+setInterval(function () {
+  let torontoElement = document.querySelector("#toronto");
+  let torontoDateElement = torontoElement.querySelector(".date");
+  let torontoTimeElement = torontoElement.querySelector(".time");
+  torontoDateElement.innerHTML = moment()
+    .tz("America/Toronto")
+    .format("MMMM Do YYYY");
+  torontoTimeElement.innerHTML = moment()
+    .tz("America/Toronto")
+    .format("h:mm:ss [<small>]A[</small>]");
+}, 1000);
