@@ -37,12 +37,33 @@ function updateTime() {
   }
 }
 
+function currentLocationTime() {
+  //current Location
+  let currentElement = document.querySelector("#current");
+  let currentName = moment.tz.guess();
+  let cityName = currentName.replace("_", " ").split("/")[1];
+  let currentTimeElement = moment().tz(moment.tz.guess());
+  currentElement.innerHTML = `
+<div class="city">
+<div>
+<h2>${cityName}</h2>
+<div class="date">${currentTimeElement.format("MMMM Do YYYY")}</div>
+</div>
+<div class="time">${currentTimeElement.format(
+    "h:mm:ss"
+  )}<small> ${currentTimeElement.format("A")}</small>
+  </div>
+  </div>`;
+}
+
+function currentLocation() {
+  currentLocationTime();
+  setInterval(currentLocationTime, 1000);
+}
+
 function updateCity(event) {
   function updateCityTime() {
     let cityTimezone = event.target.value;
-    if (cityTimezone === "current") {
-      cityTimezone = moment.tz.guess();
-    }
     let cityName = cityTimezone.replace("_", " ").split("/")[1];
     let cityTime = moment().tz(cityTimezone);
     let citiesElement = document.querySelector(".cities");
@@ -69,3 +90,6 @@ setInterval(updateTime, 1000);
 setInterval(updateCity, 1000);
 let citySelect = document.querySelector("#city");
 citySelect.addEventListener("change", updateCity);
+
+currentLocation();
+setInterval(currentLocation, 1000);

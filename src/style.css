@@ -36,6 +36,19 @@ select {
   opacity: 0.7;
   margin-top: 15px;
 }
+.current {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 1px;
+  border: none;
+  margin: px;
+}
+.current-time {
+  font-size: 45px;
+  font-weight: bold;
+}
+.current-date {
+  opacity: 0.7;
+}
 .cities {
   background-color: rgba(255, 255, 255, 0.4);
   padding: 12px;
